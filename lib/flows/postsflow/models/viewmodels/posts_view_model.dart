@@ -22,8 +22,9 @@ class PostsViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updatePost({@required Post post, @required String newTitle}) {
+  void updatePost({@required Post post, @required String newTitle, @required String newBody}) {
     post.title = newTitle;
+    post.body = newBody;
 
     notifyListeners();
   }
