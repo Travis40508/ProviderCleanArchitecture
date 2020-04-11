@@ -9,7 +9,7 @@ import 'models/post.dart';
 class PostsServiceImpl implements PostsService {
 
   final Client client = Client();
-  final baseUrl = 'https://jsonplaceholder.typicode.com/todos';
+  final baseUrl = 'https://jsonplaceholder.typicode.com/posts';
 
   @override
   Future<List<Post>> fetchAllPosts() async {

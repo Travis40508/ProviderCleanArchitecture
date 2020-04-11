@@ -1,29 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_advanced/flows/postsflow/routes/edit_post_route.dart';
 import 'package:provider_advanced/repositories/postsrepository/models/viewmodels/posts_view_model.dart';
+
+import '../posts_flow.dart';
 
 class PostsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Consumer<PostsViewModel>(
-      builder: (context, viewModel, child) {
 
-        return ListView.builder(
-          itemCount: viewModel.posts.length,
-          itemBuilder: (_, index) {
-            final post = viewModel.posts[index];
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.purpleAccent,
+        centerTitle: true,
+        title: Text('Posts'),
+      ),
 
-            return Card(
-              elevation: 8.0,
-              child: ListTile(
-                title: Text(
-                  post.title
+      body: Consumer<PostsViewModel>(
+        builder: (context, viewModel, child) {
+
+          return ListView.builder(
+            itemCount: viewModel.posts.length,
+            itemBuilder: (_, index) {
+              final post = viewModel.posts[index];
+
+              return Card(
+                elevation: 8.0,
+                child: ListTile(
+                  onTap: () => Navigator.of(context).pushNamed(editPostRouteName, arguments: EditPostRoute(post: post)),
+                  title: Text(
+                      post.title
+                  ),
                 ),
-              ),
-            );
-          },
-        );
-      },
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

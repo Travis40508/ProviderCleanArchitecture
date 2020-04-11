@@ -4,7 +4,7 @@ class Post {
 
   final userId;
   final id;
-  final String title;
+  String title;
   final bool completed;
 
   Post.fromJson(Map<String, dynamic> parsedJson) :
