@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_advanced/flows/postsflow/models/viewmodels/posts_view_model.dart';
 import 'package:provider_advanced/flows/postsflow/routes/edit_post_route.dart';
-import 'package:provider_advanced/repositories/postsrepository/models/viewmodels/posts_view_model.dart';
 
 class EditPostScreen extends StatelessWidget {
 
@@ -19,7 +19,8 @@ class EditPostScreen extends StatelessWidget {
         centerTitle: true,
         title: Text('Edit Post'),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(8.0, 24.0, 8.0, 0.0),
         child: TextField(
           controller: _controller,
         ),

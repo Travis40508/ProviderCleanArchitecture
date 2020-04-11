@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_advanced/flows/postsflow/models/viewmodels/posts_view_model.dart';
 import 'package:provider_advanced/flows/postsflow/routes/edit_post_route.dart';
-import 'package:provider_advanced/repositories/postsrepository/models/viewmodels/posts_view_model.dart';
 
 import '../posts_flow.dart';
 
@@ -24,7 +24,7 @@ class PostsScreen extends StatelessWidget {
             itemBuilder: (_, index) {
               final post = viewModel.posts[index];
 
-              return Card(
+              return viewModel.posts.isNotEmpty ? Card(
                 elevation: 8.0,
                 child: ListTile(
                   onTap: () => Navigator.of(context).pushNamed(editPostRouteName, arguments: EditPostRoute(post: post)),
@@ -32,7 +32,7 @@ class PostsScreen extends StatelessWidget {
                       post.title
                   ),
                 ),
-              );
+              ) : Center(child: CircularProgressIndicator(),);
             },
           );
         },

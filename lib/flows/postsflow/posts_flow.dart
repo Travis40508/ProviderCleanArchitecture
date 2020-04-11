@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_advanced/flows/postsflow/screens/edit_post_screen.dart';
 import 'package:provider_advanced/flows/postsflow/screens/posts_screen.dart';
-import 'package:provider_advanced/repositories/postsrepository/models/viewmodels/posts_view_model.dart';
 import 'package:provider_advanced/repositories/postsrepository/posts_repository.dart';
 import 'package:provider_advanced/repositories/postsrepository/posts_repository_impl.dart';
 import 'package:provider_advanced/repositories/postsrepository/posts_service_impl.dart';
+
+import 'models/viewmodels/posts_view_model.dart';
 
 
 const String editPostRouteName = 'posts/edit_post';

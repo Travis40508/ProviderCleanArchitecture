@@ -1,8 +1,8 @@
 
+import 'package:provider_advanced/flows/postsflow/models/post.dart';
 import 'package:provider_advanced/repositories/postsrepository/posts_repository.dart';
 import 'package:provider_advanced/repositories/postsrepository/posts_service.dart';
 
-import 'models/post.dart';
 
 class PostsRepositoryImpl implements PostsRepository {
 

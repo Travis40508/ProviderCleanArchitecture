@@ -1,10 +1,9 @@
 
 import 'dart:convert';
-
+import 'package:provider_advanced/flows/postsflow/models/post.dart';
 import 'package:provider_advanced/repositories/postsrepository/posts_service.dart';
 import 'package:http/http.dart' show Client;
 
-import 'models/post.dart';
 
 class PostsServiceImpl implements PostsService {
 

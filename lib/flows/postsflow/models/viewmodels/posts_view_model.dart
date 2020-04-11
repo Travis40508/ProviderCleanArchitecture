@@ -1,8 +1,8 @@
 
-
 import 'package:flutter/material.dart';
-import 'package:provider_advanced/repositories/postsrepository/models/post.dart';
 import 'package:provider_advanced/repositories/postsrepository/posts_repository.dart';
+
+import '../post.dart';
 
 class PostsViewModel extends ChangeNotifier {
 
