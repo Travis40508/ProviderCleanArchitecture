@@ -17,7 +17,7 @@ class PostsApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: postsFlowRouteName,
         routes: {
-          postsFlowRouteName: (context) => PostsFlow(),
+          postsFlowRouteName: (context) => PostsFlow(routeName: postsRouteName,),
         },
       ),
     );

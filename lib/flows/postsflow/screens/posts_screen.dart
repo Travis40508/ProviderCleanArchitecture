@@ -25,11 +25,14 @@ class PostsScreen extends StatelessWidget {
               final post = viewModel.posts[index];
 
               return viewModel.posts.isNotEmpty ? Card(
-                elevation: 8.0,
+                elevation: 4.0,
                 child: ListTile(
                   onTap: () => Navigator.of(context).pushNamed(editPostRouteName, arguments: EditPostRoute(post: post)),
                   title: Text(
                       post.title
+                  ),
+                  subtitle: Text(
+                    post.body
                   ),
                 ),
               ) : Center(child: CircularProgressIndicator(),);

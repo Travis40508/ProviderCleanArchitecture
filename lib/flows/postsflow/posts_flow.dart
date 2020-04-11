@@ -5,7 +5,7 @@ import 'package:provider_advanced/flows/postsflow/screens/posts_screen.dart';
 import 'package:provider_advanced/repositories/postsrepository/posts_repository.dart';
 import 'package:provider_advanced/repositories/postsrepository/posts_repository_impl.dart';
 import 'package:provider_advanced/repositories/postsrepository/posts_service_impl.dart';
-
+import 'package:flutter/foundation.dart';
 import 'models/viewmodels/posts_view_model.dart';
 
 
@@ -13,6 +13,11 @@ const String editPostRouteName = 'posts/edit_post';
 const String postsRouteName = 'posts/posts_list';
 
 class PostsFlow extends StatelessWidget {
+
+  final String routeName;
+
+  PostsFlow({this.routeName});
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -32,7 +37,7 @@ class PostsFlow extends StatelessWidget {
         onGenerateRoute: (RouteSettings settings) {
           WidgetBuilder builder;
 
-          switch(settings.name) {
+          switch(settings.name?? routeName) {
             case postsRouteName:
               builder = (context) => PostsScreen();
               break;
