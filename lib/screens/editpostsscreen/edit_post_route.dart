@@ -12,7 +12,7 @@ class EditPostRoute extends StatelessWidget {
   static const String viewModelKey = 'viewModelKey';
   static const String argsKey = 'argsKey';
 
-  //here we can establish which dependencies we could expect for a given screen 
+  //here we can establish which dependencies we could expect for a given screen
   static Map buildRouteArguments({PostsViewModel viewModel, dynamic args}) {
     Map<String, dynamic> argsMap = {
       viewModelKey: viewModel,
