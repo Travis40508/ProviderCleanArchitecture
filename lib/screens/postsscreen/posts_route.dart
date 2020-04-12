@@ -9,6 +9,8 @@ import 'package:provider_advanced/repositories/postsrepository/posts_service_imp
 class PostsRoute extends StatelessWidget {
 
   static const String routeName = 'postsRoute';
+
+  //here we can establish which dependencies we could expect for a given screen
   static const String viewModelKey = 'viewModelKey';
   static const String argsKey = 'argsKey';
 
