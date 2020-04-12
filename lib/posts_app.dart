@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_advanced/screens/chucknorrisfactsscreen/chuck_norris_facts_route.dart';
+import 'package:provider_advanced/screens/editpostsscreen/edit_post_route.dart';
+import 'package:provider_advanced/screens/postsscreen/posts_route.dart';
 import 'package:provider_advanced/models/global_view_model.dart';
-import 'flows/chucknorrisflow/chuck_norris_flow.dart';
-import 'flows/postsflow/posts_flow.dart';
+import 'screens/postsscreen/posts_route.dart';
 
 
-const postsFlowRouteName = '/posts/';
-const chuckNorrisFlowRouteName = '/chucknorris/';
 
 class PostsApp extends StatelessWidget {
   @override
@@ -17,10 +17,25 @@ class PostsApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Posts Application',
         debugShowCheckedModeBanner: false,
-        initialRoute: chuckNorrisFlowRouteName,
-        routes: {
-          postsFlowRouteName: (context) => PostsFlow(routeName: postsRouteName,),
-          chuckNorrisFlowRouteName: (context) => ChuckNorrisFlow(routeName: chuckNorrisFactsRouteName,),
+        initialRoute: PostsRoute.routeName,
+        onGenerateRoute: (RouteSettings settings) {
+          WidgetBuilder builder;
+
+          switch(settings.name) {
+            case PostsRoute.routeName:
+              builder = (context) => PostsRoute();
+              break;
+            case EditPostRoute.routeName:
+              builder = (context) => EditPostRoute();
+              break;
+            case ChuckNorrisFactsRoute.routeName:
+              builder = (context) => ChuckNorrisFactsRoute();
+              break;
+            default:
+              throw Exception('invalid route ${settings.name}');
+          }
+
+          return MaterialPageRoute(builder: builder, settings: settings);
         },
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_advanced/flows/postsflow/models/viewmodels/posts_view_model.dart';
-import 'package:provider_advanced/flows/postsflow/routes/edit_post_route.dart';
+import 'package:provider_advanced/models/post.dart';
+import 'package:provider_advanced/models/viewmodels/posts_view_model.dart';
 
 class EditPostScreen extends StatelessWidget {
 
@@ -10,10 +10,10 @@ class EditPostScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final EditPostRoute _route = ModalRoute.of(context).settings.arguments;
+    final Post post = ModalRoute.of(context).settings.arguments;
     final PostsViewModel _postsViewModel = Provider.of<PostsViewModel>(context, listen: false);
-    _titleController.text = _route.post.title;
-    _bodyController.text = _route.post.body;
+    _titleController.text = post.title;
+    _bodyController.text = post.body;
 
     return Scaffold(
       appBar: AppBar(
@@ -41,7 +41,7 @@ class EditPostScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.save),
         onPressed: () {
-          _postsViewModel.updatePost(post: _route.post, newTitle: _titleController.text, newBody: _bodyController.text);
+          _postsViewModel.updatePost(post: post, newTitle: _titleController.text, newBody: _bodyController.text);
           Navigator.of(context).pop();
         },
       ),

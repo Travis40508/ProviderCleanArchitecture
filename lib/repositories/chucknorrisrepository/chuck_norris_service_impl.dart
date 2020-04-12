@@ -2,7 +2,7 @@
 
 import 'dart:convert';
 
-import 'package:provider_advanced/flows/chucknorrisflow/models/chuck_norris_fact.dart';
+import 'package:provider_advanced/models/chuck_norris_fact.dart';
 import 'package:provider_advanced/repositories/chucknorrisrepository/chuck_norris_service.dart';
 import 'package:http/http.dart' show Client;
 

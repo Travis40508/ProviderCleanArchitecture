@@ -8,6 +8,8 @@ class Post {
   String body;
   final bool completed;
 
+  Post({this.userId, this.id, this.title, this.body, this.completed});
+
   Post.fromJson(Map<String, dynamic> parsedJson) :
         userId = parsedJson['userId'],
         id = parsedJson['id'],

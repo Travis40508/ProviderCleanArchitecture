@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_advanced/flows/postsflow/models/viewmodels/posts_view_model.dart';
-import 'package:provider_advanced/flows/postsflow/routes/edit_post_route.dart';
+import 'package:provider_advanced/models/viewmodels/posts_view_model.dart';
+import 'package:provider_advanced/screens/editpostsscreen/edit_post_route.dart';
 
-import '../posts_flow.dart';
 
 class PostsScreen extends StatelessWidget {
   @override
@@ -27,7 +26,7 @@ class PostsScreen extends StatelessWidget {
               return viewModel.posts.isNotEmpty ? Card(
                 elevation: 4.0,
                 child: ListTile(
-                  onTap: () => Navigator.of(context).pushNamed(editPostRouteName, arguments: EditPostRoute(post: post)),
+                  onTap: () => Navigator.pushNamed(context, EditPostRoute.routeName, arguments: post),
                   title: Text(
                       post.title
                   ),

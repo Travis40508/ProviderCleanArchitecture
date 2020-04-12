@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_advanced/flows/chucknorrisflow/models/viewmodels/chuck_norris_facts_view_model.dart';
+import 'package:provider_advanced/models/post.dart';
+import 'package:provider_advanced/screens/editpostsscreen/edit_post_route.dart';
+import 'package:provider_advanced/models/viewmodels/chuck_norris_facts_view_model.dart';
 
 class ChuckNorrisFactsScreen extends StatelessWidget {
   @override
@@ -30,6 +32,8 @@ class ChuckNorrisFactsScreen extends StatelessWidget {
               return Card(
                 elevation: 4.0,
                 child: ListTile(
+                  onTap: () => Navigator.pushNamed(context, EditPostRoute.routeName,
+                  arguments: Post(userId: 1, id: 2, title: 'Random Fact', body: fact.jokeContent, completed: false)),
                   leading: Image(
                     image: CachedNetworkImageProvider(
                       fact.iconUrl
