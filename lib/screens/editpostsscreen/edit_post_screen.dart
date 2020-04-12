@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_advanced/models/post.dart';
 import 'package:provider_advanced/models/viewmodels/posts_view_model.dart';
+import 'package:provider_advanced/screens/editpostsscreen/edit_post_route.dart';
 
 class EditPostScreen extends StatelessWidget {
 
@@ -10,8 +11,10 @@ class EditPostScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Post post = ModalRoute.of(context).settings.arguments;
-    final PostsViewModel _postsViewModel = Provider.of<PostsViewModel>(context, listen: false);
+    //here we can always get the arguments that are provided
+    final Map args = ModalRoute.of(context).settings.arguments;
+    final Post post = args[EditPostRoute.argsKey];
+
     _titleController.text = post.title;
     _bodyController.text = post.body;
 
@@ -41,7 +44,8 @@ class EditPostScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.save),
         onPressed: () {
-          _postsViewModel.updatePost(post: post, newTitle: _titleController.text, newBody: _bodyController.text);
+          //we can be sure that the viewmodel will always be provided
+          Provider.of<PostsViewModel>(context, listen: false).updatePost(post: post, newTitle: _titleController.text, newBody: _bodyController.text);
           Navigator.of(context).pop();
         },
       ),

@@ -33,7 +33,9 @@ class ChuckNorrisFactsScreen extends StatelessWidget {
                 elevation: 4.0,
                 child: ListTile(
                   onTap: () => Navigator.pushNamed(context, EditPostRoute.routeName,
-                  arguments: Post(userId: 1, id: 2, title: 'Random Fact', body: fact.jokeContent, completed: false)),
+                  arguments: EditPostRoute.buildRouteArguments(
+                    args: Post(userId: 1, id: 2, title: 'Random Fact', body: fact.jokeContent, completed: false))
+                  ),
                   leading: Image(
                     image: CachedNetworkImageProvider(
                       fact.iconUrl

@@ -8,18 +8,28 @@ import 'package:provider_advanced/repositories/chucknorrisrepository/chuck_norri
 
 class ChuckNorrisFactsRoute extends StatelessWidget {
   static const String routeName = 'chuckNorrisFactsRoute';
-  final ChuckNorrisFactsViewModel viewModel;
+  static const String viewModelKey = 'viewModelKey';
+  static const String argsKey = 'argsKey';
 
-  ChuckNorrisFactsRoute({this.viewModel});
+  static Map buildRouteArguments({ChuckNorrisFactsViewModel viewModel, dynamic args}) {
+    Map<String, dynamic> argsMap = {
+      viewModelKey: viewModel,
+      argsKey: args
+    };
+
+    return argsMap;
+  }
+
 
   @override
   Widget build(BuildContext context) {
+    final Map args = ModalRoute.of(context).settings.arguments;
 
     //if we're navigating from a screen that already has context of this viewmodel, we can choose to
     //pass it in and use the existing value down the tree (so we use value)
-    if (viewModel != null) {
+    if (args != null && args[viewModelKey] != null) {
       return ChangeNotifierProvider<ChuckNorrisFactsViewModel>.value(
-        value: viewModel,
+        value: args[viewModelKey],
         child: ChuckNorrisFactsScreen(),
       );
     }

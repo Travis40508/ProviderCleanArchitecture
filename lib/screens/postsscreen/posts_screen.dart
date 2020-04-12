@@ -26,7 +26,10 @@ class PostsScreen extends StatelessWidget {
               return viewModel.posts.isNotEmpty ? Card(
                 elevation: 4.0,
                 child: ListTile(
-                  onTap: () => Navigator.pushNamed(context, EditPostRoute.routeName, arguments: post),
+                  onTap: () => Navigator.pushNamed(context, EditPostRoute.routeName, arguments: EditPostRoute.buildRouteArguments(
+                    viewModel: viewModel,
+                    args: post
+                  )),
                   title: Text(
                       post.title
                   ),
